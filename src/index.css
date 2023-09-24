@@ -17,7 +17,6 @@ Variables
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 body {
   font-family: "Helvetica", sans-serif;
@@ -57,7 +56,7 @@ h4 {
 p {
   margin-bottom: 1.25rem;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 601px) {
   h1 {
     font-size: 4rem;
   }
@@ -92,25 +91,26 @@ Navbar
 */
 nav {
   background-color: var(--clr-primary);
-  padding: 1.5rem 1.7rem;
+  padding: 1.5rem 0;
   position: sticky;
   top: 0;
 }
 .nav-center {
   display: flex;
   justify-content: space-between;
-  max-width: 50rem;
+  max-width: 60rem;
   align-items: center;
   margin: 0 auto;
-  width: 100%;
+  padding: 0 3rem;
 }
 .nav-title {
+  margin: 0;
   color: white;
-  margin-bottom: 0px;
   font-size: 1.7rem;
 }
 
 .nav-pages {
+  margin: 0;
   display: flex;
   width: 20rem;
   justify-content: space-between;
@@ -118,7 +118,7 @@ nav {
 
 .nav-pages h4 {
   color: white;
-  margin-bottom: 0;
+  margin: 0;
   font-size: 0.8rem;
 }
 
@@ -188,6 +188,7 @@ nav svg {
     font-size: 1.1rem;
     margin-top: 1rem;
     letter-spacing: 0.2rem;
+    color: var(--clr-primary);
   }
 
   .hamburger-menu h4:hover {
@@ -221,7 +222,7 @@ Cart
   font-size: 1.8rem;
 }
 
-.cart footer {
+.cart-bottom {
   margin-top: 2rem;
   text-align: center;
 }
@@ -344,4 +345,58 @@ Cart Item
   height: 3rem;
   border: 1px solid #dcdcdc;
   text-align: center;
+}
+
+/*
+=============== 
+Home page
+===============
+*/
+
+.home-page-container {
+  max-width: 60rem;
+  margin: 1.8rem auto;
+  padding: 0 3rem;
+}
+
+.home-page-container h3 {
+  font-size: 2rem;
+}
+
+.home-page-container .number-of-devices {
+  color: var(--clr-primary-dark);
+  font-size: 1.2rem;
+}
+
+.phones-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  margin-top: 2rem;
+  align-items: center;
+  row-gap: 1.2rem;
+  column-gap: 2.5rem;
+}
+
+.single-phone {
+  border: 1px solid #e8e8e8;
+  padding: 1rem;
+}
+
+.single-phone:hover {
+  cursor: pointer;
+  border-color: #d3d3d3;
+  background-color: #e8e8e8;
+}
+
+.single-phone img {
+  width: 7rem;
+  margin: 0 auto;
+}
+
+.single-phone .description {
+  text-align: center;
+}
+
+.single-phone .description p {
+  margin: 0;
 }

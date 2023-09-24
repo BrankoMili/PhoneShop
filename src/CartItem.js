@@ -17,7 +17,7 @@ const CartItem = () => {
         return (
           <div key={id} className="container-cart-item">
             <div className="image-text-cart-item">
-              <img src={img} alt="phone-picture"></img>
+              <img src={img} alt={title}></img>
               <div className="cart-item-desc">
                 <h3>{title}</h3>
                 <p>${price}</p>
