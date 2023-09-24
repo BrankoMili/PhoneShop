@@ -385,7 +385,8 @@ Home page
 .single-phone:hover {
   cursor: pointer;
   border-color: #d3d3d3;
-  background-color: #e8e8e8;
+  box-shadow: 5px 5px 7px #d3d3d3;
+  transition: all 0.2s linear;
 }
 
 .single-phone img {
