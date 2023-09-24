@@ -1,5 +1,5 @@
 import React, { useContext, useReducer } from "react";
-import items from "./data";
+import data from "./data";
 import { reducer } from "./reducer";
 import {
   CLEARCART,
@@ -10,12 +10,14 @@ import {
   SUM_PRICE,
   SUM_ITEMS,
   TOGGLE_HAMBURGER_MENU,
+  ADD_ITEM_TO_CART,
 } from "./constants";
 
 const AppContext = React.createContext();
 
 const defaultState = {
-  cartItems: items,
+  cartItems: [],
+  mobilesData: data,
   sumPrice: 0,
   totalItems: 0,
   isHamburgerMenuOpen: false,
@@ -24,6 +26,12 @@ const defaultState = {
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
 
+  // HOMEPAGE FUNCTIONS
+  const addItemToCart = (id) => {
+    dispatch({ type: ADD_ITEM_TO_CART, payload: id });
+  };
+
+  // SHOPPING CART FUNCTIONS
   const remove = (id) => {
     dispatch({ type: REMOVE, payload: id });
   };
@@ -68,6 +76,7 @@ const AppProvider = ({ children }) => {
         totalPrice,
         totalQuantity,
         toggleHamburgerMenu,
+        addItemToCart,
       }}
     >
       {children}

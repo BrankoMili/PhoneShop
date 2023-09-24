@@ -7,9 +7,38 @@ import {
   SUM_PRICE,
   SUM_ITEMS,
   TOGGLE_HAMBURGER_MENU,
+  ADD_ITEM_TO_CART,
 } from "./constants";
 
 export const reducer = (state, action) => {
+  if (action.type === ADD_ITEM_TO_CART) {
+    const newItem = state.mobilesData.find(
+      (item) => item.id === action.payload
+    );
+
+    const isIncludes = state.cartItems.find((item) => {
+      return item.id === newItem.id;
+    });
+
+    if (isIncludes) {
+      let array = state.cartItems.map((item) => {
+        if (item.id === action.payload) {
+          return { ...item, amount: item.amount + 1 };
+        }
+        return item;
+      });
+      return {
+        ...state,
+        cartItems: array,
+      };
+    } else {
+      return {
+        ...state,
+        cartItems: [...state.cartItems, { ...newItem, amount: 1 }],
+      };
+    }
+  }
+
   if (action.type === REMOVE) {
     return {
       ...state,
@@ -39,20 +68,35 @@ export const reducer = (state, action) => {
   }
 
   if (action.type === DECREASE) {
-    let array = state.cartItems.map((item) => {
+    let isAmountOne = "";
+    state.cartItems.map((item) => {
       if (action.payload === item.id) {
-        if (item.amount === 0) {
-          return { ...item, amount: 0 };
+        if (item.amount === 1) {
+          isAmountOne = true;
+        } else {
+          isAmountOne = false;
         }
-        return { ...item, amount: item.amount === "" ? 0 : item.amount - 1 };
       }
       return item;
     });
 
-    return {
-      ...state,
-      cartItems: array,
-    };
+    if (isAmountOne) {
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((item) => item.id !== action.payload),
+      };
+    } else {
+      let array = state.cartItems.map((item) => {
+        if (item.id === action.payload) {
+          return { ...item, amount: item.amount === "" ? 1 : item.amount - 1 };
+        }
+        return item;
+      });
+      return {
+        ...state,
+        cartItems: array,
+      };
+    }
   }
 
   if (action.type === CHANGE_ITEM_QUANTITY) {

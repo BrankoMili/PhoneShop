@@ -6,3 +6,4 @@ export const DECREASE = "DECREASE";
 export const SUM_PRICE = "SUM_PRICE";
 export const SUM_ITEMS = "SUM_ITEMS";
 export const TOGGLE_HAMBURGER_MENU = "TOGGLE_HAMBURGER_MENU";
+export const ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART";
