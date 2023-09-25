@@ -8,9 +8,13 @@ import {
   SUM_ITEMS,
   TOGGLE_HAMBURGER_MENU,
   ADD_ITEM_TO_CART,
+  SEARCH_INPUT_VALUE,
+  SORT_BY,
 } from "./constants";
 
 export const reducer = (state, action) => {
+  // HOMEPAGE FUNCTIONS
+
   if (action.type === ADD_ITEM_TO_CART) {
     const newItem = state.mobilesData.find(
       (item) => item.id === action.payload
@@ -38,6 +42,75 @@ export const reducer = (state, action) => {
       };
     }
   }
+
+  if (action.type === SEARCH_INPUT_VALUE) {
+    const searchedArray = state.mobilesData.filter((item) => {
+      return item.title
+        .toString()
+        .toLowerCase()
+        .split(" ")
+        .join("")
+        .includes(action.payload.toString().toLowerCase().split(" ").join(""));
+    });
+    return {
+      ...state,
+      filteredArray: searchedArray,
+    };
+  }
+
+  if (action.type === SORT_BY) {
+    const filteredList = state.filteredArray;
+    if (action.payload === "byName") {
+      filteredList.sort(function (a, b) {
+        if (a.title.toLowerCase() < b.title.toLowerCase()) {
+          return -1;
+        }
+        if (a.title.toLowerCase() > b.title.toLowerCase()) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    if (action.payload === "lowToHigh") {
+      filteredList.sort(function (a, b) {
+        if (a.price < b.price) {
+          return -1;
+        }
+        if (a.price > b.price) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    if (action.payload === "highToLow") {
+      filteredList.sort(function (a, b) {
+        if (a.price > b.price) {
+          return -1;
+        }
+        if (a.price < b.price) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    if (action.payload === "popularity") {
+      filteredList.sort(function (a, b) {
+        if (a.popularity > b.popularity) {
+          return -1;
+        }
+        if (a.popularity < b.popularity) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    return {
+      ...state,
+      filteredArray: filteredList,
+    };
+  }
+
+  // SHOPPING CART FUNCTIONS
 
   if (action.type === REMOVE) {
     return {

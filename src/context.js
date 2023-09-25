@@ -11,6 +11,8 @@ import {
   SUM_ITEMS,
   TOGGLE_HAMBURGER_MENU,
   ADD_ITEM_TO_CART,
+  SEARCH_INPUT_VALUE,
+  SORT_BY,
 } from "./constants";
 
 const AppContext = React.createContext();
@@ -18,6 +20,7 @@ const AppContext = React.createContext();
 const defaultState = {
   cartItems: [],
   mobilesData: data,
+  filteredArray: data,
   sumPrice: 0,
   totalItems: 0,
   isHamburgerMenuOpen: false,
@@ -29,6 +32,14 @@ const AppProvider = ({ children }) => {
   // HOMEPAGE FUNCTIONS
   const addItemToCart = (id) => {
     dispatch({ type: ADD_ITEM_TO_CART, payload: id });
+  };
+
+  const searchPhone = (value) => {
+    dispatch({ type: SEARCH_INPUT_VALUE, payload: value });
+  };
+
+  const sortBy = (value) => {
+    dispatch({ type: SORT_BY, payload: value });
   };
 
   // SHOPPING CART FUNCTIONS
@@ -77,6 +88,8 @@ const AppProvider = ({ children }) => {
         totalQuantity,
         toggleHamburgerMenu,
         addItemToCart,
+        searchPhone,
+        sortBy,
       }}
     >
       {children}
