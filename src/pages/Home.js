@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useGlobalContext } from "../context";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { addItemToCart, searchPhone, filteredArray, sortBy } =
@@ -46,19 +47,21 @@ const Home = () => {
         {filteredArray.map((cartItem) => {
           let { id, title, price, img } = cartItem;
           return (
-            <div key={id} className="single-phone">
-              <img src={img} alt={title} />
-              <div className="description">
-                <p>{title}</p>
-                <p>${price}</p>
-                <button
-                  className="btn-add-to-cart"
-                  onClick={() => addItemToCart(id)}
-                >
-                  Add to Cart
-                </button>
+            <Link to={`/phones/${id}`}>
+              <div key={id} className="single-phone">
+                <img src={img} alt={title} />
+                <div className="description">
+                  <p>{title}</p>
+                  <p>${price}</p>
+                  <button
+                    className="btn-add-to-cart"
+                    onClick={() => addItemToCart(id)}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

@@ -424,6 +424,10 @@ Home page
   padding: 1.7rem;
 }
 
+.single-phone p {
+  color: black;
+}
+
 .single-phone:hover {
   cursor: pointer;
   border-color: #d3d3d3;
@@ -556,4 +560,79 @@ Contact us page
   cursor: pointer;
   transition: var(--transition);
   background-color: var(--clr-primary-dark);
+}
+
+/*
+=============== 
+Error page
+===============
+*/
+
+.error-section {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.error-container h4 {
+  font-size: 1.5rem;
+}
+
+.error-container button {
+  margin-top: 0.5rem;
+  border: none;
+  background-color: var(--clr-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.error-container button:hover {
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: var(--clr-primary-dark);
+}
+
+/*
+=============== 
+Single phone page
+===============
+*/
+
+.single-phone-section {
+  max-width: 60rem;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.single-phone-container {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d3d3d3;
+  padding: 1.7rem;
+}
+
+.single-phone-container:hover {
+  box-shadow: 5px 5px 7px #d3d3d3;
+  transition: var(--transition);
+}
+
+.single-phone-container img {
+  width: 12rem;
+  margin-right: 2rem;
+}
+
+.single-phone-container img:hover {
+  transform: scale(1.05);
+  transition: var(--transition);
+}
+
+.property-of-phone {
+  background-color: var(--clr-primary-dark);
+  color: white;
+  padding: 4px;
 }
