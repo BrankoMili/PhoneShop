@@ -30,8 +30,8 @@ const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   // HOMEPAGE FUNCTIONS
-  const addItemToCart = (id) => {
-    dispatch({ type: ADD_ITEM_TO_CART, payload: id });
+  const addItemToCart = (id, quantity) => {
+    dispatch({ type: ADD_ITEM_TO_CART, payload: { id, quantity } });
   };
 
   const searchPhone = (value) => {

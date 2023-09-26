@@ -17,7 +17,7 @@ export const reducer = (state, action) => {
 
   if (action.type === ADD_ITEM_TO_CART) {
     const newItem = state.mobilesData.find(
-      (item) => item.id === action.payload
+      (item) => item.id === action.payload.id
     );
 
     const isIncludes = state.cartItems.find((item) => {
@@ -26,8 +26,8 @@ export const reducer = (state, action) => {
 
     if (isIncludes) {
       let array = state.cartItems.map((item) => {
-        if (item.id === action.payload) {
-          return { ...item, amount: item.amount + 1 };
+        if (item.id === action.payload.id) {
+          return { ...item, amount: item.amount * action.payload.quantity + 1 };
         }
         return item;
       });

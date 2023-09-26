@@ -55,7 +55,7 @@ const Home = () => {
                   <p>${price}</p>
                   <button
                     className="btn-add-to-cart"
-                    onClick={() => addItemToCart(id)}
+                    onClick={() => addItemToCart(id, 1)}
                   >
                     Add to Cart
                   </button>

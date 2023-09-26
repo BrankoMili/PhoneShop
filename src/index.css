@@ -362,10 +362,6 @@ Cart Item
   color: var(--clr-primary-dark);
 }
 
-.amount-container {
-  display: flex;
-}
-
 .amount-btn {
   width: 2.5rem;
   height: 3rem;
@@ -632,7 +628,28 @@ Single phone page
 }
 
 .property-of-phone {
-  background-color: var(--clr-primary-dark);
+  color: var(--clr-primary-dark);
+  font-weight: bold;
+  margin-right: 2rem;
+}
+
+.phone-spec-container {
+  display: grid;
+  grid-template-columns: 0.8fr 0.8fr;
+}
+
+.add-to-cart-single-phone-btn {
+  width: 5rem;
+  margin-top: 0.5rem;
+  border: none;
+  background-color: var(--clr-primary);
   color: white;
-  padding: 4px;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.add-to-cart-single-phone-btn:hover {
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: var(--clr-primary-dark);
 }

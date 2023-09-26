@@ -12,6 +12,13 @@ const data = [
     price: 99.99,
     img: require("./phone_pictures/iPhone6picture.png"),
     popularity: 2,
+    Dimensions: "138.1 x 67 x 6.9 mm",
+    Weight: "129 g",
+    Resolution: "1334 x 750 pixels, 326 PPI",
+    Processor: "Dual-core, 1400 MHz, Cyclone ARMv8-A 2nd gen., 64-bit",
+    RAM: "1GB LPDDR3",
+    Internal_storage: "128GB, not expandable",
+    Main_camera: "8 MP (Sapphire crystal lens cover, PDAF, BSI sensor)",
   },
   {
     id: 3,
