@@ -720,6 +720,15 @@ Contact us page
   background-color: var(--clr-primary-dark);
 }
 
+@media screen and (max-width: 600px) {
+  .form-container textarea {
+    min-height: 11em;
+    max-width: 15rem;
+    max-height: 27rem;
+    min-width: 15rem;
+  }
+}
+
 /*
 =============== 
 Error page

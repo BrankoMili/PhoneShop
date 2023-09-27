@@ -45,7 +45,7 @@
     "id": 4,
     "title": "iPhone 14 Pro max",
     "price": 1520.99,
-    "img": "https://raw.githubusercontent.com/BrankoMili/Shoppingcart/main/src/phone_pictures/AppleiPhone11ProMaxpicture.png",
+    "img": "https://raw.githubusercontent.com/BrankoMili/PhoneShop/main/src/phone_pictures/Iphone14promaxpicture.png",
     "popularity": 3,
     "Dimensions": "160.7 x 77.6 x 7.85 mm",
     "Weight": "240.0 g",
