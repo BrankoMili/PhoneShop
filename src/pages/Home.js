@@ -3,17 +3,24 @@ import { useGlobalContext } from "../context";
 import PhoneContainer from "../PhoneContainer";
 
 const Home = () => {
-  const { searchPhone, filteredArray, sortBy, isLoading } = useGlobalContext();
+  const { searchPhone, filteredArray, sortBy, isLoading, isHamburgerMenuOpen } =
+    useGlobalContext();
 
   useEffect(() => {
     sortBy("byName");
   }, [filteredArray]);
 
   return (
-    <main className="home-page-container">
+    <main
+      className={`${
+        isHamburgerMenuOpen
+          ? "home-page-container display-none"
+          : "home-page-container"
+      }`}
+    >
       <link
         rel="stylesheet"
-        href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+        href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
       />
       <div className="header-of-homepage">
         <h3>Mobile phones</h3>

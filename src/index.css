@@ -309,6 +309,17 @@ Cart
   transition-duration: 0.1s;
   font-size: 1rem;
 }
+
+@media screen and (max-width: 600px) {
+  .total-price h4,
+  .total-price p {
+    font-size: 1rem;
+  }
+
+  .cart h2 {
+    font-size: 1.4rem;
+  }
+}
 /*
 =============== 
 Cart Item
@@ -384,6 +395,33 @@ Cart Item
   height: 3rem;
   border: 1px solid #dcdcdc;
   text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .amount-container input {
+    width: 2rem;
+    height: 2.5rem;
+  }
+
+  .container-cart-item {
+    display: block;
+  }
+
+  .amount-btn {
+    width: 2rem;
+    height: 2.5rem;
+    line-height: 1.9;
+  }
+
+  .amount-container {
+    margin-top: 2.4rem;
+    text-align: center;
+    display: relative;
+  }
+
+  .quantity-top {
+    display: none;
+  }
 }
 
 /*
@@ -576,6 +614,37 @@ Home page
   }
 }
 
+@media screen and (max-width: 600px) {
+  .phones-container {
+    display: block;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: center;
+  }
+
+  .single-phone {
+    border: 1px solid #e8e8e8;
+    padding: 1rem 0.5rem;
+    margin-top: 1.3rem;
+  }
+
+  .searchAndSelectContainer {
+    display: block;
+  }
+
+  .searchAndSelectContainer select {
+    margin-top: 0.7rem;
+  }
+
+  .header-of-homepage {
+    align-items: center;
+  }
+
+  .header-of-homepage h3 {
+    font-size: 1.5rem;
+  }
+}
+
 /*
 =============== 
 About page
@@ -739,10 +808,74 @@ Single phone page
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 5px;
+  margin-left: 1rem;
 }
 
 .add-to-cart-single-phone-btn:hover {
   cursor: pointer;
   transition: var(--transition);
   background-color: var(--clr-primary-dark);
+}
+
+.button-amount-container {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .single-phone-container {
+    margin-top: 3rem;
+    display: block;
+    padding: 1.7rem;
+  }
+
+  .single-phone-container img {
+    width: 8rem;
+    margin: 0 auto;
+  }
+
+  .phone-spec-container {
+    margin-top: 2rem;
+  }
+
+  .phone-spec-container p,
+  .phone-spec-container span {
+    font-size: 0.9rem;
+  }
+
+  .add-to-cart-single-phone-btn {
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    display: flex;
+    height: 40%;
+    width: 6rem;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .button-amount-container {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .phone-spec-container {
+    display: block;
+  }
+
+  .amount-container {
+    margin-bottom: 1.2rem;
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .home-page-container,
+  .cart,
+  .contact-us-container,
+  .about-container {
+    display: block;
+  }
 }

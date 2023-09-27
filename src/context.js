@@ -35,7 +35,6 @@ const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   const fetchData = async () => {
-    console.log("fecovani podaci");
     try {
       const response = await fetch(url);
       const dataMobiles = await response.json();

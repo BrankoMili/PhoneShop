@@ -53,13 +53,13 @@ const Navbar = () => {
       <div
         className={`${isHamburgerMenuOpen ? "hamburger-menu" : "display-none"}`}
       >
-        <Link to="/">
+        <Link to="/" onClick={toggleHamburgerMenu}>
           <h4>Home</h4>
         </Link>
-        <Link to="/contact">
+        <Link to="/contact" onClick={toggleHamburgerMenu}>
           <h4>Contact Us</h4>
         </Link>
-        <Link to="/about">
+        <Link to="/about" onClick={toggleHamburgerMenu}>
           <h4>About us</h4>
         </Link>
       </div>

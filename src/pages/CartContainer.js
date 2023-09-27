@@ -20,13 +20,7 @@ const CartContainer = () => {
 
   return (
     <section
-      className={`${
-        isHamburgerMenuOpen
-          ? windowWidth >= 600
-            ? "cart"
-            : "cart display-none"
-          : "cart"
-      }`}
+      className={`${isHamburgerMenuOpen ? "cart display-none" : "cart"}`}
     >
       {/* cart header */}
       <header>
@@ -34,7 +28,7 @@ const CartContainer = () => {
         <div className="line-border"></div>
       </header>
       {/* cart items */}
-      <div>
+      <div className="cart-items-container">
         <p className="quantity-top">Quantity:</p>
         <CartItem />
       </div>

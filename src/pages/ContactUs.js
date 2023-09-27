@@ -1,11 +1,19 @@
 import React from "react";
+import { useGlobalContext } from "../context";
 
 const ContactUs = () => {
+  const { isHamburgerMenuOpen } = useGlobalContext();
   return (
-    <div className="contact-us-container">
+    <div
+      className={`${
+        isHamburgerMenuOpen
+          ? "contact-us-container display-none"
+          : "contact-us-container"
+      }`}
+    >
       <link
         rel="stylesheet"
-        href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+        href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
       />
       <h3>Contact Us</h3>
       <p>

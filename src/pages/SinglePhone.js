@@ -45,38 +45,40 @@ const SinglePhone = () => {
             <p>{Internal_storage}</p>
             <span className="property-of-phone">Main camera:</span>{" "}
             <p>{Main_camera}</p>
-            <button
-              className="add-to-cart-single-phone-btn"
-              onClick={() => addItemToCart(parseInt(id), quantity)}
-            >
-              Add to Cart
-            </button>
-            <div className="amount-container">
+            <div className="button-amount-container">
+              <div className="amount-container">
+                <button
+                  className="amount-btn"
+                  onClick={() => setQuantity(quantity - 1)}
+                >
+                  <div>-</div>
+                </button>
+                <input
+                  type="text"
+                  value={quantity}
+                  onChange={(e) => {
+                    if (e.target.value === "") {
+                      setQuantity(0);
+                      return;
+                    }
+                    if (isNaN(parseInt(e.target.value))) {
+                      return;
+                    }
+                    setQuantity(parseInt(e.target.value));
+                  }}
+                ></input>
+                <button
+                  className="amount-btn"
+                  onClick={() => setQuantity(quantity + 1)}
+                >
+                  <div>+</div>
+                </button>
+              </div>
               <button
-                className="amount-btn"
-                onClick={() => setQuantity(quantity - 1)}
+                className="add-to-cart-single-phone-btn"
+                onClick={() => addItemToCart(parseInt(id), quantity)}
               >
-                <div>-</div>
-              </button>
-              <input
-                type="text"
-                value={quantity}
-                onChange={(e) => {
-                  if (e.target.value === "") {
-                    setQuantity(0);
-                    return;
-                  }
-                  if (isNaN(parseInt(e.target.value))) {
-                    return;
-                  }
-                  setQuantity(parseInt(e.target.value));
-                }}
-              ></input>
-              <button
-                className="amount-btn"
-                onClick={() => setQuantity(quantity + 1)}
-              >
-                <div>+</div>
+                Add to Cart
               </button>
             </div>
           </div>
