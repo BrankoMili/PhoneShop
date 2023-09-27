@@ -666,6 +666,13 @@ About page
   margin: 1.5rem auto;
 }
 
+@media screen and (max-width: 600px) {
+  .about-container img {
+    width: 20rem;
+    padding: 0 3rem;
+  }
+}
+
 /*
 =============== 
 Contact us page
