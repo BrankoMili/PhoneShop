@@ -3,7 +3,7 @@
     "id": 1,
     "title": "iPhone 11 Pro Max",
     "price": 350.99,
-    "img": "/static/media/AppleiPhone11ProMaxpicture.4350cc50f0f9d70b7dc0.png",
+    "img": "https://raw.githubusercontent.com/BrankoMili/Shoppingcart/main/src/phone_pictures/AppleiPhone11ProMaxpicture.png",
     "popularity": 3,
     "Dimensions": "158 x 77.8 x 8.1 mm",
     "Weight": "226.0 g",

@@ -10,13 +10,15 @@ const PhoneContainer = () => {
       {filteredArray.map((cartItem) => {
         let { id, title, price, img } = cartItem;
         return (
-          <Link to={`/phones/${id}`}>
-            <div key={id} className="single-phone">
+          <Link to={`/phones/${id}`} key={id}>
+            <div className="single-phone">
               <img src={img} alt={title} />
               <div className="description">
                 <p>{title}</p>
                 <p>${price}</p>
-                <Link to={``}>
+
+                {/* ERROR */}
+                <Link to={""}>
                   <button
                     className="btn-add-to-cart"
                     onClick={() => addItemToCart(id, 1)}

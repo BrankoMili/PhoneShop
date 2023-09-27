@@ -10,12 +10,29 @@ import {
   ADD_ITEM_TO_CART,
   SEARCH_INPUT_VALUE,
   SORT_BY,
+  FETCH_DATA,
+  IS_LOADING,
 } from "./constants";
 
 export const reducer = (state, action) => {
-  // HOMEPAGE FUNCTIONS
+  if (action.type === FETCH_DATA) {
+    return {
+      ...state,
+      mobilesData: action.payload,
+      filteredArray: action.payload,
+    };
+  }
+
+  if (action.type === IS_LOADING) {
+    return {
+      ...state,
+      isLoading: false,
+    };
+  }
 
   if (action.type === ADD_ITEM_TO_CART) {
+    // HOMEPAGE FUNCTIONS
+
     const newItem = state.mobilesData.find(
       (item) => item.id === action.payload.id
     );
@@ -27,7 +44,10 @@ export const reducer = (state, action) => {
     if (isIncludes) {
       let array = state.cartItems.map((item) => {
         if (item.id === action.payload.id) {
-          return { ...item, amount: item.amount * action.payload.quantity + 1 };
+          return {
+            ...item,
+            amount: item.amount * action.payload.quantity + 1,
+          };
         }
         return item;
       });

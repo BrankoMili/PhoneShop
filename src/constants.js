@@ -9,3 +9,5 @@ export const TOGGLE_HAMBURGER_MENU = "TOGGLE_HAMBURGER_MENU";
 export const ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART";
 export const SEARCH_INPUT_VALUE = "SEARCH_INPUT_VALUE";
 export const SORT_BY = "SORT_BY";
+export const FETCH_DATA = "FETCH_DATA";
+export const IS_LOADING = "IS_LOADING";

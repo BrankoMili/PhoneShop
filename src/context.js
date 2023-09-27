@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
-import data from "./data";
+import React, { useContext, useEffect, useReducer } from "react";
 import { reducer } from "./reducer";
 import {
   CLEARCART,
@@ -13,29 +12,39 @@ import {
   ADD_ITEM_TO_CART,
   SEARCH_INPUT_VALUE,
   SORT_BY,
+  FETCH_DATA,
+  IS_LOADING,
 } from "./constants";
+
+const url =
+  "https://raw.githubusercontent.com/BrankoMili/Shoppingcart/main/src/mobileData.json";
 
 const AppContext = React.createContext();
 
 const defaultState = {
   cartItems: [],
-  mobilesData: data,
-  filteredArray: data,
+  mobilesData: [],
+  filteredArray: [],
   sumPrice: 0,
   totalItems: 0,
   isHamburgerMenuOpen: false,
+  isLoading: true,
 };
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
-  const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async () => {
-    const response = await fetch(
-      "https://api.jsonbin.io/v3/b/651475530574da7622b13396"
-    );
-    const dataMobiles = await response.json();
-    console.log(dataMobiles.record);
+    console.log("fecovani podaci");
+    try {
+      const response = await fetch(url);
+      const dataMobiles = await response.json();
+      dispatch({ type: FETCH_DATA, payload: dataMobiles });
+      dispatch({ type: IS_LOADING });
+    } catch (error) {
+      console.log(error);
+      dispatch({ type: IS_LOADING });
+    }
   };
 
   useEffect(() => {
@@ -103,7 +112,6 @@ const AppProvider = ({ children }) => {
         addItemToCart,
         searchPhone,
         sortBy,
-        isLoading,
       }}
     >
       {children}
