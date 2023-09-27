@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import data from "./data";
 import { reducer } from "./reducer";
 import {
@@ -28,6 +28,19 @@ const defaultState = {
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const fetchData = async () => {
+    const response = await fetch(
+      "https://api.jsonbin.io/v3/b/651475530574da7622b13396"
+    );
+    const dataMobiles = await response.json();
+    console.log(dataMobiles.record);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   // HOMEPAGE FUNCTIONS
   const addItemToCart = (id, quantity) => {
@@ -90,6 +103,7 @@ const AppProvider = ({ children }) => {
         addItemToCart,
         searchPhone,
         sortBy,
+        isLoading,
       }}
     >
       {children}

@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { useGlobalContext } from "../context";
-import { Link } from "react-router-dom";
+import PhoneContainer from "../PhoneContainer";
 
 const Home = () => {
-  const { addItemToCart, searchPhone, filteredArray, sortBy } =
-    useGlobalContext();
+  const { searchPhone, filteredArray, sortBy, isLoading } = useGlobalContext();
 
   useEffect(() => {
     sortBy("byName");
@@ -42,40 +41,33 @@ const Home = () => {
           <option value="popularity">Sort by popularity</option>
         </select>
       </div>
-
       <div className="phones-container">
-        {filteredArray.map((cartItem) => {
-          let { id, title, price, img } = cartItem;
-          return (
-            <Link to={`/phones/${id}`}>
-              <div key={id} className="single-phone">
-                <img src={img} alt={title} />
-                <div className="description">
-                  <p>{title}</p>
-                  <p>${price}</p>
-                  <button
-                    className="btn-add-to-cart"
-                    onClick={() => addItemToCart(id, 1)}
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </Link>
-          );
-        })}
+        {isLoading ? (
+          <div className="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        ) : (
+          <PhoneContainer />
+        )}
       </div>
       <div className="line-border"></div>
-      <div class="social-icons">
+      <div className="social-icons">
         <p>Follow us on</p>
-        <a href="/" class="facebook-icon">
-          <i class="uil uil-facebook"></i>
+        <a href="/" className="facebook-icon">
+          <i className="uil uil-facebook"></i>
         </a>
-        <a href="/" class="instagram-icon">
-          <i class="uil uil-instagram"></i>
+        <a href="/" className="instagram-icon">
+          <i className="uil uil-instagram"></i>
         </a>
-        <a href="/" class="youtube-icon">
-          <i class="uil uil-youtube"></i>
+        <a href="/" className="youtube-icon">
+          <i className="uil uil-youtube"></i>
         </a>
       </div>
     </main>

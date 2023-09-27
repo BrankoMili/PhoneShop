@@ -38,7 +38,10 @@ export const reducer = (state, action) => {
     } else {
       return {
         ...state,
-        cartItems: [...state.cartItems, { ...newItem, amount: 1 }],
+        cartItems: [
+          ...state.cartItems,
+          { ...newItem, amount: action.payload.quantity },
+        ],
       };
     }
   }

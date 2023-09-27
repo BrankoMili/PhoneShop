@@ -28,16 +28,16 @@ const About = () => {
         nonummy eget tristique non, rhoncus non leo.
       </p>
       <div className="line-border"></div>
-      <div class="social-icons">
+      <div className="social-icons">
         <p>Follow us on</p>
-        <a href="/" class="facebook-icon">
-          <i class="uil uil-facebook"></i>
+        <a href="/" className="facebook-icon">
+          <i className="uil uil-facebook"></i>
         </a>
-        <a href="/" class="instagram-icon">
-          <i class="uil uil-instagram"></i>
+        <a href="/" className="instagram-icon">
+          <i className="uil uil-instagram"></i>
         </a>
-        <a href="/" class="youtube-icon">
-          <i class="uil uil-youtube"></i>
+        <a href="/" className="youtube-icon">
+          <i className="uil uil-youtube"></i>
         </a>
       </div>
     </div>

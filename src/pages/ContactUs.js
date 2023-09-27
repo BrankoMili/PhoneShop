@@ -13,13 +13,13 @@ const ContactUs = () => {
         sint.
       </p>
       <div className="contact-details">
-        <i class="uil uil-phone-times"></i>
+        <i className="uil uil-phone-times"></i>
         <span>+381655545656</span>
         <div></div>
-        <i class="uil uil-envelope"></i>
+        <i className="uil uil-envelope"></i>
         <span>example@example.com</span>
       </div>
-      <div class="form-container">
+      <div className="form-container">
         <form action="https://formspree.io/f/mleypkvj" method="POST">
           <input type="text" name="first_name" placeholder="First name" />
 
