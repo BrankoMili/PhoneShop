@@ -13,10 +13,12 @@ Variables
   --radius: 0.25rem;
   --large-screen-width: 1170px;
   --small-screen-width: 90vw;
+  --fixed-screen-width: 60rem;
 }
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
   font-family: "Helvetica", sans-serif;
@@ -144,7 +146,7 @@ nav {
 .nav-center {
   display: flex;
   justify-content: space-between;
-  max-width: 60rem;
+  max-width: var(--fixed-screen-width);
   align-items: center;
   margin: 0 auto;
   padding: 0 3rem;
@@ -254,7 +256,7 @@ Cart
   width: 90vw;
   margin: 0 auto;
   padding: 2rem 0;
-  max-width: 50rem;
+  max-width: var(--fixed-screen-width);
 }
 
 .quantity-top {
@@ -275,7 +277,7 @@ Cart
 
 .total-price {
   display: flex;
-  max-width: 50rem;
+  max-width: var(--fixed-screen-width);
   justify-content: space-between;
   align-items: baseline;
 }
@@ -321,7 +323,7 @@ Cart Item
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 50rem;
+  max-width: var(--fixed-screen-width);
   margin: 1.1rem 0;
 }
 
@@ -391,9 +393,10 @@ Home page
 */
 
 .home-page-container {
-  max-width: 60rem;
+  max-width: var(--fixed-screen-width);
   margin: 1.8rem auto;
   padding: 0 3rem;
+  min-height: calc(100vh - 120px);
 }
 
 .home-page-container h3 {
@@ -580,7 +583,7 @@ About page
 */
 
 .about-container {
-  max-width: 60rem;
+  max-width: var(--fixed-screen-width);
   margin: 3rem auto;
   padding: 0 3rem;
 }
@@ -601,7 +604,7 @@ Contact us page
 */
 
 .contact-us-container {
-  max-width: 60rem;
+  max-width: var(--fixed-screen-width);
   margin: 3rem auto;
   padding: 0 3rem;
 }
@@ -687,7 +690,7 @@ Single phone page
 */
 
 .single-phone-section {
-  max-width: 60rem;
+  max-width: var(--fixed-screen-width);
   align-items: center;
   margin: 0 auto;
   padding: 0 3rem;
