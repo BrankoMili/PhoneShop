@@ -3,7 +3,9 @@ import { useGlobalContext } from "../context";
 
 const ContactUs = () => {
   const { isHamburgerMenuOpen } = useGlobalContext();
+
   return (
+    // don't display the page if humburger menu is open
     <div
       className={`${
         isHamburgerMenuOpen

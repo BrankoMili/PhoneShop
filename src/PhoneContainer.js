@@ -16,16 +16,16 @@ const PhoneContainer = () => {
               <div className="description">
                 <p>{title}</p>
                 <p>${price}</p>
-
-                {/* ERROR */}
-                <Link to={""}>
-                  <button
-                    className="btn-add-to-cart"
-                    onClick={() => addItemToCart(id, 1)}
-                  >
-                    Add to Cart
-                  </button>
-                </Link>
+                <button
+                  className="btn-add-to-cart"
+                  onClick={(e) => {
+                    addItemToCart(id, 1);
+                    // Prevent to go to the phone url when click on add to cart button
+                    e.preventDefault();
+                  }}
+                >
+                  Add to Cart
+                </button>
               </div>
             </div>
           </Link>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import CartItem from "../CartItem";
 import { useGlobalContext } from "../context";
 
@@ -10,15 +10,8 @@ const CartContainer = () => {
     totalPrice();
   }, [cartItems]);
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  const checkWindowSize = () => {
-    setWindowWidth(window.innerWidth);
-    return window.removeEventListener("resize", checkWindowSize);
-  };
-  window.addEventListener("resize", checkWindowSize);
-
   return (
+    // don't display the page if humburger menu is open
     <section
       className={`${isHamburgerMenuOpen ? "cart display-none" : "cart"}`}
     >

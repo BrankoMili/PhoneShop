@@ -11,6 +11,7 @@ const Home = () => {
   }, [filteredArray]);
 
   return (
+    // don't display the page if humburger menu is open
     <main
       className={`${
         isHamburgerMenuOpen

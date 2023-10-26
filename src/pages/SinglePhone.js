@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import { useGlobalContext } from "../context";
 
 const SinglePhone = () => {
-  const { mobilesData, addItemToCart } = useGlobalContext();
+  const { mobilesData, addItemToCart, isHamburgerMenuOpen } =
+    useGlobalContext();
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
 
@@ -22,7 +23,14 @@ const SinglePhone = () => {
   } = currentPhone;
 
   return (
-    <section className="single-phone-section">
+    <section
+      // don't display the page if humburger menu is open
+      className={`${
+        isHamburgerMenuOpen
+          ? "single-phone-section display-none"
+          : "single-phone-section"
+      }`}
+    >
       <div className="single-phone-container">
         <img src={img} alt="phone" />
         <div>
@@ -57,10 +65,12 @@ const SinglePhone = () => {
                   type="text"
                   value={quantity}
                   onChange={(e) => {
+                    // if user delete value
                     if (e.target.value === "") {
                       setQuantity(0);
                       return;
                     }
+                    // if user type value which is not a number
                     if (isNaN(parseInt(e.target.value))) {
                       return;
                     }
