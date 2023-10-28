@@ -34,14 +34,18 @@ const defaultState = {
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, defaultState);
 
+  // HOMEPAGE FUNCTIONS
+  // FETCH DATA FROM URL
   const fetchData = async () => {
     try {
       const response = await fetch(url);
       const dataMobiles = await response.json();
       dispatch({ type: FETCH_DATA, payload: dataMobiles });
+      // DISABLE LOADING ANIMATION
       dispatch({ type: IS_LOADING });
     } catch (error) {
       console.log(error);
+      // DISABLE LOADING ANIMATION
       dispatch({ type: IS_LOADING });
     }
   };
@@ -50,10 +54,12 @@ const AppProvider = ({ children }) => {
     fetchData();
   }, []);
 
-  // HOMEPAGE FUNCTIONS
+  // HOMEPAGE / SINGLE PHONE PAGE FUNCTIONS
   const addItemToCart = (id, quantity) => {
     dispatch({ type: ADD_ITEM_TO_CART, payload: { id, quantity } });
   };
+
+  // HOMEPAGE FUNCTIONS
 
   const searchPhone = (value) => {
     dispatch({ type: SEARCH_INPUT_VALUE, payload: value });
@@ -88,10 +94,12 @@ const AppProvider = ({ children }) => {
     dispatch({ type: SUM_PRICE });
   };
 
+  // NAVBAR FUNCTION
   const totalQuantity = () => {
     dispatch({ type: SUM_ITEMS });
   };
 
+  // GLOBAL FUNCTION
   const toggleHamburgerMenu = () => {
     dispatch({ type: TOGGLE_HAMBURGER_MENU });
   };

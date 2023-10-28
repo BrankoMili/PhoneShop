@@ -10,25 +10,27 @@ const PhoneContainer = () => {
       {filteredArray.map((cartItem) => {
         let { id, title, price, img } = cartItem;
         return (
-          <Link to={`/phones/${id}`} key={id}>
-            <div className="single-phone">
-              <img src={img} alt={title} />
-              <div className="description">
-                <p>{title}</p>
-                <p>${price}</p>
-                <button
-                  className="btn-add-to-cart"
-                  onClick={(e) => {
-                    addItemToCart(id, 1);
-                    // Prevent to go to the phone url when click on add to cart button
-                    e.preventDefault();
-                  }}
-                >
-                  Add to Cart
-                </button>
+          <div key={id}>
+            <Link to={`/phones/${id}`}>
+              <div className="single-phone">
+                <img src={img} alt={title} />
+                <div className="description">
+                  <p>{title}</p>
+                  <p>${price}</p>
+                  <button
+                    className="btn-add-to-cart"
+                    onClick={(e) => {
+                      addItemToCart(id, 1);
+                      // Prevent to go to the phone url when click on add to cart button
+                      e.preventDefault();
+                    }}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         );
       })}
     </>

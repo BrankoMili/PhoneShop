@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useGlobalContext } from "../context";
 import PhoneContainer from "../PhoneContainer";
 
 const Home = () => {
   const { searchPhone, filteredArray, sortBy, isLoading, isHamburgerMenuOpen } =
     useGlobalContext();
-
-  useEffect(() => {
-    sortBy("byName");
-  }, [filteredArray]);
 
   return (
     // don't display the page if humburger menu is open
@@ -38,6 +34,7 @@ const Home = () => {
           onChange={(event) => searchPhone(event.target.value)}
         ></input>
 
+        {/* filter smartphones by different criteria */}
         <select
           onChange={(e) => {
             sortBy(e.target.value);
@@ -50,6 +47,7 @@ const Home = () => {
         </select>
       </div>
       <div className="phones-container">
+        {/* Display loading animation until data is loaded */}
         {isLoading ? (
           <div className="lds-roller">
             <div></div>

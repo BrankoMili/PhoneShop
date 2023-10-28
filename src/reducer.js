@@ -15,6 +15,8 @@ import {
 } from "./constants";
 
 export const reducer = (state, action) => {
+  // HOMEPAGE FUNCTIONS
+  // FETCH DATA FROM URL
   if (action.type === FETCH_DATA) {
     return {
       ...state,
@@ -23,6 +25,7 @@ export const reducer = (state, action) => {
     };
   }
 
+  // DISABLE LOADING ANIMATION
   if (action.type === IS_LOADING) {
     return {
       ...state,
@@ -30,9 +33,9 @@ export const reducer = (state, action) => {
     };
   }
 
-  if (action.type === ADD_ITEM_TO_CART) {
-    // HOMEPAGE FUNCTIONS
+  // HOMEPAGE / SINGLE PHONE PAGE FUNCTIONS
 
+  if (action.type === ADD_ITEM_TO_CART) {
     const newItem = state.mobilesData.find(
       (item) => item.id === action.payload.id
     );
@@ -46,7 +49,7 @@ export const reducer = (state, action) => {
         if (item.id === action.payload.id) {
           return {
             ...item,
-            amount: item.amount * action.payload.quantity + 1,
+            amount: item.amount + action.payload.quantity,
           };
         }
         return item;
@@ -65,6 +68,8 @@ export const reducer = (state, action) => {
       };
     }
   }
+
+  // HOMEPAGE FUNCTIONS
 
   if (action.type === SEARCH_INPUT_VALUE) {
     const searchedArray = state.mobilesData.filter((item) => {
@@ -224,6 +229,8 @@ export const reducer = (state, action) => {
     };
   }
 
+  // NAVBAR FUNCTION
+
   if (action.type === SUM_ITEMS) {
     let updatedSumOfItems = 0;
     state.cartItems.map((item) => {
@@ -238,6 +245,8 @@ export const reducer = (state, action) => {
       totalItems: updatedSumOfItems,
     };
   }
+
+  // GLOBAL FUNCTION
 
   if (action.type === TOGGLE_HAMBURGER_MENU) {
     let updatedHamburgerMenu = !state.isHamburgerMenuOpen;
