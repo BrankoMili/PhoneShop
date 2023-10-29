@@ -21,8 +21,18 @@ const url =
 
 const AppContext = React.createContext();
 
+// localStorage stores shopping cart list in the browser
+const getLocalStorage = () => {
+  let list = localStorage.getItem("list");
+  if (list) {
+    return JSON.parse(localStorage.getItem("list"));
+  } else {
+    return [];
+  }
+};
+
 const defaultState = {
-  cartItems: [],
+  cartItems: getLocalStorage(),
   mobilesData: [],
   filteredArray: [],
   sumPrice: 0,
@@ -53,6 +63,11 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  // setitem to localStorage if list of items change
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(state.cartItems));
+  }, [state.cartItems]);
 
   // HOMEPAGE / SINGLE PHONE PAGE FUNCTIONS
   const addItemToCart = (id, quantity) => {
