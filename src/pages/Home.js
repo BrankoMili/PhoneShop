@@ -15,10 +15,6 @@ const Home = () => {
           : "home-page-container"
       }`}
     >
-      <link
-        rel="stylesheet"
-        href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
-      />
       <div className="header-of-homepage">
         <h3>Mobile phones</h3>
         <p>

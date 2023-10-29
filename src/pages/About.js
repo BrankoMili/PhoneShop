@@ -11,10 +11,6 @@ const About = () => {
         isHamburgerMenuOpen ? "about-container display-none" : "about-container"
       }`}
     >
-      <link
-        rel="stylesheet"
-        href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
-      />
       <h3>About us</h3>
       <img
         src={require("../phone_pictures/pexels-nataliya-vaitkevich-6214476.jpg")}

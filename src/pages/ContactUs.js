@@ -13,10 +13,6 @@ const ContactUs = () => {
           : "contact-us-container"
       }`}
     >
-      <link
-        rel="stylesheet"
-        href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
-      />
       <h3>Contact Us</h3>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate,
