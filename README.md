@@ -1,6 +1,6 @@
 Deployed on the link: https://phone-shop-project-website.netlify.app/
 
-Project of the dynamic website for a smartphone online store.
+Dynamic website for a smartphone online store.
 
 JSON file is uploaded to the URL to make an instance of using the data from an API.
 
